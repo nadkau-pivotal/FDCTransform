@@ -10,7 +10,7 @@ Steps
 > mvn clean package
  
 2. upload your module to springxd
-> module upload --name csvTransformer --type processor /target/translator-0.0.1-SNAPSHOT.jar 
+> module upload --name csvTransformer --type processor /target/csvtojson-0.0.1-SNAPSHOT.jar 
 
 
 3. Deploy your stream
