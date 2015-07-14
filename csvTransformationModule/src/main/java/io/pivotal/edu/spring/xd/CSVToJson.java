@@ -21,14 +21,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.integration.transformer.MessageTransformationException;
 
-public class Translator {
+public class CSVToJson {
 	 private ObjectMapper mapper = new ObjectMapper();
 
-		// Requested language.
-	
-	/**
-	 *	Translate into the given language / dialect. 
-	 */
+
 	public Map translate(String payload){
 	    	String [] info = payload.split("\\t");
 	    	HashMap <String,String> obj = new HashMap<String,String>();
