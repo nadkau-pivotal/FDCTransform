@@ -6,6 +6,7 @@ Steps
 
 1. Build the transformation files
 > cd csvTransformationModule
+>
 > mvn clean package
  
 2. upload your module to springxd
