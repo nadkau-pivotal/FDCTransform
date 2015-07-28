@@ -10,10 +10,10 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.io.BufferedReader; 
-import java.io.FileReader; 
-import java.util.ArrayList; 
-import java.util.Collections; 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 
@@ -26,26 +26,32 @@ public class CSVToJson {
 
 
 	public Map translate(String payload){
-	    	String [] info = payload.split("\\t");
-	    	HashMap <String,String> obj = new HashMap<String,String>();
-	    	obj.put("orderID",info[0]);
-	    	obj.put("customerID",info[1]);
-	    	obj.put("orderPlaced",info[3]);
-	    	obj.put("orderShipped",info[4]);
-	    	obj.put("orderType",info[7]);
-	    	obj.put("orderWeight",info[9]);
-	    	obj.put("addressLineOne",info[19]);
-	    	obj.put("addressLineTwo",info[20]);
-	    	obj.put("city",info[22]);
-	    	obj.put("state",info[23]);
-	    	obj.put("zipcode",info[24]);
-	    	obj.put("country",info[25]);
-	    	obj.put("phoneNumber",info[26]);
-	    	obj.put("customerName",info[27]);
-	    	obj.put("customerEmail",info[28]);
-	    	obj.put("confirmationNumber",info[29]);
-	        
+
+
+
+				HashMap <String,String> obj = new HashMap<String,String>();
+		String [] info = payload.split("\\|");
+
+		try{
+		String [] coordinates = info[10].split(",");
+
+    	obj.put("transaction_id",info[0]);
+    	obj.put("credit_card_type",info[1]);
+    	obj.put("credit_card_number",info[2]);
+    	obj.put("retailer_name",info[3]);
+    	obj.put("amount",info[4]);
+    	obj.put("street",info[5]);
+    	obj.put("city",info[6]);
+    	obj.put("zip",info[7]);
+    	obj.put("region",info[8]);
+    	obj.put("country",info[9]);
+    	obj.put("latitude", coordinates[0]);
+    	obj.put("longitude", coordinates[1]);
+    	obj.put("timestamp",info[11]);
+		} catch(Exception e){
+			System.out.println("Missing data field");
+		}
 	        return obj;
-	     
+
 	}
 }
