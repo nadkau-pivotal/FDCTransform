@@ -43,7 +43,7 @@ public class CSVToJson {
     	obj.put("street",info[5]);
     	obj.put("city",info[6]);
     	obj.put("zip",info[7]);
-    	obj.put("region",info[8]);
+    	obj.put("state",info[8]);
     	obj.put("country",info[9]);
     	obj.put("latitude", coordinates[0]);
     	obj.put("longitude", coordinates[1]);
